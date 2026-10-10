@@ -20,12 +20,16 @@ public class EbankServiceApplication {
             for(int i = 1; i<=3; i++){
                 for( int j = 0; j<5; j++) {
                     ebankService.save(BankAccount.builder()
+                                    .type(Math.random() > 0.5 ? "CURRENT-ACCOUNT" : "SAVING-ACCOUNT")
+                                    .balance(1000+ Math.random() * 60000)
+
+                                    .customerId(i)
 
                             .build());
-                    );
+
                 }
             }
-        }
+        };
     }
 
 }
