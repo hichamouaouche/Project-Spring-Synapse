@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+ebank-bot/src/main/resources/application-local.properties
+*~
