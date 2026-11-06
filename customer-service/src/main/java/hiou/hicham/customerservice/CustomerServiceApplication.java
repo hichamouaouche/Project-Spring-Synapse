@@ -22,9 +22,7 @@ public class CustomerServiceApplication {
         return args -> {
             List<String> names = List.of("Hicham", "Omar", "Nadir");
             names.forEach(name -> {
-                customerService.saveCustomer(Customer.builder()
-                        .name(name).email(name+"@gmail.com")
-                        .build());
+                customerService.saveCustomer(name, name + "@gmail.com");
 
             });
         };

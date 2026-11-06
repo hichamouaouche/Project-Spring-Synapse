@@ -24,7 +24,7 @@ public class CustomerRestController {
 
     @PostMapping("/customers")
     public Customer saveCustomer(@RequestBody Customer customer){
-        return customerService.saveCustomer(customer);
+        return customerService.saveCustomer(customer.getName(), customer.getEmail());
     }
 
 }
