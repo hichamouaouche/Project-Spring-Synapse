@@ -4,6 +4,7 @@ import com.zgamelogic.discord.annotations.DiscordController;
 import com.zgamelogic.discord.annotations.DiscordMapping;
 import hiou.hicham.ebankbot.agents.EbankAIAgent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import org.springframework.ai.chat.prompt.Prompt;
 
 @DiscordController
 public class DiscordBot {
@@ -16,7 +17,7 @@ public class DiscordBot {
     private void perform(MessageReceivedEvent event) {
         if (event.getAuthor().isBot()) return;
         String query = event.getMessage().getContentRaw();
-        String response = ebankAIAgent.chat(query);
+        String response = ebankAIAgent.chat(new Prompt(query));
         event.getChannel().sendMessage(response).queue();
     }
 }
