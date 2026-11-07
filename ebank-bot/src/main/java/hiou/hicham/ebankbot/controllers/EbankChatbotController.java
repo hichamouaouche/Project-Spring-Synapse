@@ -1,12 +1,10 @@
 package hiou.hicham.ebankbot.controllers;
 
-import hiou.hicham.ebankbot.agents.EbankAIAgent;
-import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
-import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import hiou.hicham.ebankbot.agents.EbankAIAgent;
 
 @RestController
 public class EbankChatbotController {
@@ -17,7 +15,9 @@ public class EbankChatbotController {
     }
 
 
-    @GetMapping("/chat")
+
+
+    @GetMapping(value = "/chat", produces = "application/json")
     public String chat(@RequestParam(name = "query", defaultValue = "Bonjour") String query) {
         return ebankAIAgent.chat(query);
     }
